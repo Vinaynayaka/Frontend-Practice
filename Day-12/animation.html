@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box
+        {
+            width: 150px;
+            height: 150px;
+            background-color: lightblue;
+            border: 1px black;
+            position: relative;
+            animation-name:move-box;
+            animation-duration: 5s;
+            animation-timing-function: ease-in;
+        }
+        @keyframes move-box
+        {
+            0%{
+                left:0; 
+            }
+            100%{
+                left:500px; 
+            }
+        }
+        .box2
+        {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            animation-name:move-box2;
+            animation-duration: 10s;
+            animation-timing-function: ease-in;
+        }
+        @keyframes move-box2 {
+            0%{
+                left: 0;
+                rotate: 0deg;
+                border-style: dotted;
+            }
+            25%{
+                left: 250;
+                rotate: 90deg;
+                border: 40px dashed;
+            }
+            50%{
+                left: 500;
+                rotate: 180deg;
+                border-style: solid;
+            }
+            75%{
+                left: 750;
+                rotate: 270deg;
+                border-style: double;
+            }
+            100%{
+                left: 1000px;
+                rotate: 360deg;
+                border-style: double;
+            }
+        }
+    </style>
+</head>
+<body>
+   <div class="box">Box1</div>
+   <div class="box2">Box2</div>
+</body>
+</html>
