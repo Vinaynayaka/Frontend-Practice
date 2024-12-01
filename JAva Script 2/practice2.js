@@ -197,5 +197,26 @@ function countProerties(a)
 console.log(countProerties(book));
 
 // How can you add methods like add and subtract to an object calculator that use its properties to perform calculations?
+let caluculator={
+     add(a,b)
+{
+    return a+b;
+},
+ subtract(a,b)
+{
+    return a-b;
+}
+}
+console.log(caluculator.add(5,10));
+console.log(caluculator.subtract(9,1));
 
+// What steps are involved in cloning an object user into a new object?
 
+let user={
+    name: "dadas",
+    id:12
+}
+let cloned={
+
+}
+    
