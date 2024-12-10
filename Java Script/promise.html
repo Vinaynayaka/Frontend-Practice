@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       //  Promise.all() methods 
+        const prom1=new Promise((resolve,reject)=>setTimeout(reject,1000,"error1"));
+        const prom2=new Promise((resolve)=>setTimeout(resolve,1000,"Resolved2"));
+        const prom3=new Promise((resolve)=>setTimeout(resolve,1000,"Resolved3"));
+
+        Promise.all([prom1,prom2,prom3])
+        .then((message)=>{
+            console.log(message);
+        })
+        .catch((error)=>{
+            console.log(error);
+        });
+        //output
+        // error1
+
+
+
+        // promise.allSetteled() methods
+            const promi1=new Promise((resolve,reject)=>setTimeout(reject,1000,"error1"));
+            const promi2=new Promise((resolve)=>setTimeout(resolve,1000,"Resolved2"));
+            const promi3=new Promise((resolve)=>setTimeout(resolve,1000,"Resolved3"));
+
+            Promise.allSettled([promi1,promi2,promi3])
+            .then((message)=>{
+                console.log(message);
+            })
+            .catch((error)=>{
+                console.log(error);
+            });
+            //output
+           // { status: 'rejected', reason: 'error1' },
+            //{ status: 'fulfilled', value: 'Resolved2' },
+            //{ status: 'fulfilled', value: 'Resolved3' }
+
+
+            //promise.any() method 
+            const prom4=new Promise((resolve,reject)=>setTimeout(reject,1000,"error1"));
+            const prom5=new Promise((resolve,reject)=>setTimeout(reject,1000,"error2"));
+            const prom6=new Promise((resolve)=>setTimeout(resolve,1000,"Resolved3"));
+
+            Promise.any([prom4,prom5,prom6])
+            .then((message)=>{
+                console.log(message);
+            })
+            .catch((error)=>{
+                console.log(error);
+            });
+            // output
+            // Resolved3
+            const promi4=new Promise((resolve,reject)=>setTimeout(reject,1000,"error1"));
+            const promi5=new Promise((resolve,reject)=>setTimeout(reject,1000,"error2"));
+            const promi6=new Promise((resolve)=>setTimeout(resolve,1000,"Resolved3"));
+
+            Promise.any([promi4,promi5,promi6])
+            .then((message)=>{
+                console.log(message);
+            })
+            .catch((error)=>{
+                console.log(error);
+            });
+    </script>
+</body>
+</html>
