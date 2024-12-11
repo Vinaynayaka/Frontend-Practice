@@ -3,8 +3,10 @@ function getGitHubUser(username) {
     const url = `https://api.github.com/users/${username}`;
   
     fetch(url)
-      .then(response => {
-        if (!response.ok) {
+      .then(response => 
+      {
+        if (!response.ok) 
+          {
           throw new Error(`User not found: ${response.status}`);
         }
         return response.json(); 

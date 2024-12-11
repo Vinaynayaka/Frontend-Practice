@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Fetch Posts</h1>
+    <p>Click the Button below to see posts</p>
+    <div id="postsData"></div>
+    <button id="Load">Load</button>
+    <script>
+            document.getElementById("Load").addEventListener("click",function()
+            {
+                loadPosts();
+            });
+            function loadPosts()
+            {
+                const url="https://jsonplaceholder.typicode.com/posts";
+                fetch(url)
+                    .then(response=>{
+                        if(!response.ok)
+                        {
+                            throw new error('user not found');
+                        }
+                        return response.json();
+                    })
+                    .then(posts=>
+                    {
+                        console.log(posts);
+                        displayPosts(posts);
+                    })
+                    .catch(error=>
+                    {
+                        console.log("Error fetching posts: ",error);
+                    })
+                }
+               function displayPosts(posts)
+               {    
+                    var b=document.createElement('div');
+                    posts.forEach(post=>
+                    {
+                        var a=document.createElement('div');
+                        var id=document.createElement('h3');
+                        id.textContent=post.id;
+                        a.appendChild(id);
+                        var content=document.createElement('p');
+                        content.textContent=post.title;
+                        a.appendChild(content);
+                        b.appendChild(a);
+                    });
+                    document.body.appendChild(b);
+               }
+    </script>
+</body>
+</html>
